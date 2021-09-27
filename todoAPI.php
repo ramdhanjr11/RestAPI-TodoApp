@@ -172,7 +172,7 @@ function insertImage() {
     $filePath = $_SERVER['DOCUMENT_ROOT']."/todoAPI";
 
     if (!file_exists($filePath)) {
-        mkdir($filePat, 0777, true);
+        mkdir($filePath, 0777, true);
     }
 
     if (!$image) {
