@@ -166,10 +166,10 @@ function updateTodoById() {
 function insertImage() {
     global $connect;
 
-    $image = $_FILES['file']['tmp_file'];
+    $image = $_FILES['file']['tmp_name'];
     $imageName = $_FILES['file']['name'];
 
-    $filePath = $_SERVER['DOCUMENT_ROOT']."/todoAPI";
+    $filePath = $_SERVER['DOCUMENT_ROOT']."/todoAPI/gambar";
 
     if (!file_exists($filePath)) {
         mkdir($filePath, 0777, true);
@@ -180,7 +180,7 @@ function insertImage() {
         $response["message"] = "Gambar tidak ditemukan";
     } else {
         if (move_uploaded_file($image, $filePath.'/'.$imageName)) {
-            $response["statue"] = 200;
+            $response["status"] = 200;
             $response["message"] = "Sukses upload gambar";
         }
     }
