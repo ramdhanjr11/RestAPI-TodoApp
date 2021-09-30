@@ -345,7 +345,7 @@ function update_pengguna() {
                 $response["message"] = "Terjadi kesalahan";
             }
         } else {
-            $response["status"] = 400;
+            $response["status"] = 401;
             $response["message"] = "Parameter tidak sesuai";
         }
 
