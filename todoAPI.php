@@ -356,4 +356,34 @@ function update_pengguna() {
 
     echo json_encode($response);
 }
+
+function login() {
+    global $connect;
+
+    $check      = array('email' => '', 'password' => '');
+    $checkMatch = count(array_intersect_key($_POST, $check));
+    
+    if ($checkMatch == count($check)) {
+        
+        $email    = $_POST['email'];
+        $password = $_POST['password'];
+        $query    = mysqli_query($connect, "SELECT * FROM pengguna_tb WHERE email = '$email' && password = '$password'");
+        $row      = mysqli_num_rows($query);
+
+        if ($row > 0) {
+            $response["status"] = 200;
+            $response["mesasge"] = "Login sukses";
+            $response["data"] = mysqli_fetch_object($query);
+        } else {
+            $response["status"] = 400;
+            $response["message"] = "Login gagal";
+        }
+
+    } else {
+        $response["status"] = 403;
+        $response["message"] = "Masukan parameter";
+    }
+
+    echo json_encode($response);
+}
 ?>
