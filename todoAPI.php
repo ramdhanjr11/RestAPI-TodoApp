@@ -1,6 +1,10 @@
 <?php
 
 include_once "connection.php";
+include_once 'firebase.php';
+include_once 'data.php';
+
+error_reporting(0);
 
 if (function_exists($_GET['fun'])) {
     $_GET['fun']();
@@ -385,5 +389,40 @@ function login() {
     }
 
     echo json_encode($response);
+}
+
+function send_notif() {
+
+    $check      = array('title' => '', 'message' => '');
+    $checkMatch = count(array_intersect_key($_POST, $check));
+
+    if ($checkMatch == count($check)) {
+
+        $title   = $_POST['title'];
+        $message = $_POST['message'];
+        
+        $dataEntity = new Data();
+        $firebase   = new Notification();
+
+        $dataEntity->setTitle($title);
+        $dataEntity->setMessage($message);
+
+        $sendNotif = $firebase->sendToTopic('formulir-app-commonly', $dataEntity->getData());
+
+        if ($sendNotif == TRUE) {
+            $response["status"] = 200;
+            $response["message"] = "Notification berhasil terkirim";
+        } else {
+            $response["status"] = 402;
+            $response["message"] = $sendNotif;
+        }
+ 
+    } else {
+        $response["status"] = 403;
+        $response["message"] = "Parameter tidak sesuai";
+    }
+
+    echo json_encode($response);
+
 }
 ?>
