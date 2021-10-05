@@ -1,3 +1,322 @@
+## Documentation
+---
+
+## Todo API
+
+### Add Todo
+- Method : ```POST```
+- Endpoint : ```todoAPI.php?fun=insertTodo```
+- Body : 
+
+```json
+{
+  "title" : "string",
+  "catatan" : "string",
+  "tanggal" : "string",
+  "status" : "string"
+}
+```
+
+- Response : 
+
+```json
+{
+  "status" : "integer",
+  "message" : "string"
+}
+```
+
+### Delete Todo
+- Method : ```DELETE```
+- Endpoint : ```todoAPI.php?fun=deleteTodoById```
+- Body : 
+
+```json
+{
+  "id" : "string"
+}
+```
+
+- Response : 
+
+```json
+{
+  "status" : "integer",
+  "message" : "string"
+}
+```
+
+### Get All Todo
+- Method : ```GET```
+- Endpoint : ```todoAPI.php?fun=getAllTodo```
+- Body : -
+- Response : 
+
+```json
+{
+  "status" : "integer",
+  "message" : "string",
+  "data" : [
+  {
+    "id" : "string",
+    "title" : "string",
+    "catatan" : "string",
+    "tanggal" : "string",
+    "status" : "string"
+  }]
+}
+```
+
+### Get Todo by Id
+- Method : ```POST```
+- Endpoint : ```todoAPI.php?fun=getTodoById```
+- Body : 
+
+```json
+{
+  "id" : "string"
+}
+```
+
+- Response : 
+
+```json
+{
+  "status" : "integer",
+  "message" : "string",
+  "data" : [
+  {
+    "id" : "string",
+    "title" : "string",
+    "catatan" : "string",
+    "tanggal" : "string",
+    "status" : "string"
+  }]
+}
+```
+
+### Update Todo by Id
+- Method : ```POST```
+- Endpoint : ```todoAPI.php?fun=getTodoById```
+- Body : 
+
+```json
+{
+  "id" : "string"
+}
+```
+
+- Response : 
+
+```json
+{
+  "status" : "integer",
+  "message" : "string",
+  "data" :
+  {
+    "id" : "string",
+    "title" : "string",
+    "catatan" : "string",
+    "tanggal" : "string",
+    "status": "string"
+  }
+}
+```
+---
+
+## Pengguna API
+
+### Add Pengguna
+- Method : ```POST```
+- Endpoint : ```todoAPI.php?fun=insert_pengguna```
+- Body : 
+
+```json
+{
+  "nama" : "string",
+  "alamat" : "string",
+  "email" : "string",
+  "image" : "string",
+  "password" : "string",
+}
+```
+
+- Response : 
+
+```json
+{
+  "status" : "integer",
+  "message" : "string"
+}
+```
+
+### Add Image
+- Method : ```POST```
+- Endpoint : ```todoAPI.php?fun=insert_image```
+- Body : 
+
+```json
+{
+  "image" : "MultipartBody.Part"
+}
+```
+
+- Response : 
+
+```json
+{
+  "status" : "integer",
+  "message" : "string"
+}
+```
+
+### Delete Pengguna
+- Method : ```DELETE```
+- Endpoint : ```todoAPI.php?fun=delete_pengguna```
+- Body : 
+
+```json
+{
+  "id" : "string"
+}
+```
+
+- Response : 
+
+```json
+{
+  "status" : "integer",
+  "message" : "string"
+}
+```
+
+### Update Pengguna
+- Method : ```POST```
+- Endpoint : ```todoAPI.php?fun=update_pengguna```
+- Body : 
+
+```json
+{
+  "id" : "string",
+  "nama" : "string",
+  "alamat" : "string",
+  "email" : "string",
+  "image" : "string",
+  "password" : "string"
+}
+```
+
+- Response : 
+
+```json
+{
+  "status" : "integer",
+  "message" : "string"
+}
+```
+
+### Get All Pengguna
+- Method : ```GET```
+- Endpoint : ```todoAPI.php?fun=get_all_pengguna```
+- Body : -
+- Response : 
+
+```json
+{
+  "status" : "integer",
+  "message" : "string",
+  "data" : [
+  {
+   "id" : "string",
+   "nama" : "string",
+   "alamat" : "string",
+   "email" : "string",
+   "image" : "string",
+   "password" : "string"
+  }]
+}
+```
+
+### Get Pengguna by Id
+- Method : ```GET```
+- Endpoint : ```todoAPI.php?fun=get_pengguna_by_id```
+- Body : 
+
+```json
+{
+  "id" : "string"
+}
+```
+
+- Response : 
+
+```json
+{
+  "status" : "integer",
+  "message" : "string",
+  "data" :
+  {
+    "id" : "string",
+    "nama" : "string",
+    "alamat" : "string",
+    "email" : "string",
+    "image" : "string",
+    "password" : "string"
+  }
+}
+```
+
+### Login
+- Method : ```POST```
+- Endpoint : ```todoAPI.php?fun=login```
+- Body : 
+
+```json
+{
+  "email" : "string",
+  "password" : "string"
+}
+```
+
+- Response : 
+
+```json
+{
+  "status" : "integer",
+  "message" : "string",
+  "data" :
+  {
+    "id" : "string",
+    "nama" : "string",
+    "alamat" : "string",
+    "email" : "string",
+    "image" : "string",
+    "password" : "string"
+  }
+}
+```
+
+### Send Notification (Firebase Cloud Message)
+- Method : ```POST```
+- Endpoint : ```todoAPI.php?fun=send_notif```
+- Body : 
+
+```json
+{
+  "title" : "string",
+  "message" : "string"
+}
+```
+
+- Response : 
+
+```json
+{
+  "status" : "integer",
+  "message" : "string"
+}
+```
+
 ## Screnshot hasil program
 
 <table align="center">
