@@ -97,7 +97,7 @@
 
 ### Update Todo by Id
 - Method : ```POST```
-- Endpoint : ```todoAPI.php?fun=getTodoById```
+- Endpoint : ```todoAPI.php?fun=updateTodoById```
 - Body : 
 
 ```json
