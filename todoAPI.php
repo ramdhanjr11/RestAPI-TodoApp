@@ -391,6 +391,53 @@ function login() {
     echo json_encode($response);
 }
 
+function login_auth() {
+    global $connect;
+
+    $deviceId = $_POST['id_device'] ?: '';
+    
+    if ($deviceId != null && !$deviceId->empty) {
+        $query = mysqli_query($connect, "SELECT * FROM pengguna_tb WHERE id_device = '$deviceId'");
+        $row   = mysqli_num_rows($query);
+        if ($row > 0) {
+            $response["status"] = 200;
+            $response["message"] = "Login sukses";
+            $response["data"] = mysqli_fetch_object($query);
+        } else {
+            $response["status"] = 400;
+            $response["message"] = "Login gagal";
+        }
+    } else {
+        $response["status"] = 403;
+        $response["message"] = "Masukan parameter";
+    }
+
+    echo json_encode($response);
+}
+
+function update_id_device() {
+    global $connect;
+
+    $deviceId = $_POST['id_device'] ?: '';
+    $userId = $_POST['id_user'] ?: '';
+
+    if (!$deviceId->empty && !$userId->empty) {
+        $query = mysqli_query($connect, "UPDATE pengguna_tb SET id_device = '$deviceId' WHERE id = $userId");
+        if ($query) {
+            $response["status"] = 200;
+            $response["message"] = "update device id berhasil";
+        } else {
+            $response["status"] = 401;
+            $response["message"] = "gagal update device id";
+        }
+    } else {
+        $response["status"] = 404;
+        $response["message"] = "Masukan parameter";
+    }
+
+    echo json_encode($response);
+}
+
 function send_notif() {
 
     $check      = array('title' => '', 'message' => '');
