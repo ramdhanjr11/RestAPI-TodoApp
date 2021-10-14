@@ -317,6 +317,47 @@
 }
 ```
 
+### Login with Authentication (Biometric Fingerprint)
+- Method : ```POST```
+- Endpoint : ```todoAPI.php?fun=login_auth```
+- Body : 
+
+```json
+{
+  "id_device" : "string"
+}
+```
+
+- Response : 
+
+```json
+{
+  "status" : "integer",
+  "message" : "string"
+}
+```
+
+### Update Device Id (Biometric Fingerprint)
+- Method : ```POST```
+- Endpoint : ```todoAPI.php?fun=update_id_device```
+- Body : 
+
+```json
+{
+  "id_device" : "string",
+  "id_user" : "string"
+}
+```
+
+- Response : 
+
+```json
+{
+  "status" : "integer",
+  "message" : "string"
+}
+```
+
 ## Screnshot hasil program
 
 <table align="center">
